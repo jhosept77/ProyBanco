@@ -2,7 +2,7 @@ using System;
 
 public class ListasEnlazadasCliente
 {
-    NodoCliente  Cabeza;
+    NodoCliente?  Cabeza;
 
     public void IngresarCliente(Cliente cliente)
     {

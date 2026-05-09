@@ -2,14 +2,14 @@ using System;
 
 public class Transaccion
 {
-    Cliente cliente;
-    String Tipo;
-    double Monto;
+    public Cliente clienteTrans;
+    public String Tipo;
+    public double Monto;
 
 
     public Transaccion (Cliente cliente, String tipo, double monto)
     {
-        cliente cliente;
+        clienteTrans = cliente;
         Tipo = tipo;
         Monto = monto;
     }

@@ -2,6 +2,6 @@ using System;
 
 public class NodoCola
 {
-    public ColaAtencion colaAtencion;
-    public NodoCola Siguiente;
+  public Cliente? DatoCliente;
+  public NodoCola? Siguiente;
 }
