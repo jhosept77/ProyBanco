@@ -5,7 +5,7 @@ public class ColaAtencion
     NodoCola? frente;
     NodoCola? fin;
 
-    public void Atender(Cliente cliente)
+    public void Encolar (Cliente cliente)
     {
         NodoCola nuevo = new NodoCola();
         nuevo.DatoCliente = cliente;
@@ -19,6 +19,44 @@ public class ColaAtencion
         {
             fin.Siguiente = nuevo;
             fin = nuevo;
+        }
+    }
+
+    public Cliente? Atender()
+    {
+        if(frente == null)
+        {
+            return null;
+        }
+        else
+        {
+            Cliente? temp = frente.DatoCliente;
+            frente = frente.Siguiente;
+            return temp;
+        }
+         
+    }
+
+    public Cliente? MostrarCliente()
+    {
+        if(frente == null)
+        {
+            return null;
+        }
+        else
+        {
+            Cliente? VerCli = frente.DatoCliente;
+            return VerCli;
+        }
+    }
+
+    public void RecorrerCola()
+    {
+        NodoCola? actual = frente;
+        while(actual != null)
+        {
+            Console.WriteLine($"Nombre: {actual.DatoCliente!.Nombre} | Id: {actual.DatoCliente!.Id} | Cuenta: {actual.DatoCliente!.NumeroCuenta} | Saldo: {actual.DatoCliente!.Saldo}");
+            actual = actual.Siguiente;
         }
     }
 }

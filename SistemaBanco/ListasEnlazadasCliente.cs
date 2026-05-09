@@ -12,4 +12,19 @@ public class ListasEnlazadasCliente
         Cabeza = nuevo;
 
     }
+
+    public Cliente? BuscarCliente(int id)
+    {
+        NodoCliente? actual = Cabeza;
+        while(actual != null)
+        {
+            if(actual.DatoCliente!.Id == id)
+            {
+                return actual.DatoCliente;
+            }
+            actual = actual.Siguiente;
+        }
+        return null;
+    }
+
 }

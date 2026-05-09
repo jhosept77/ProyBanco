@@ -33,4 +33,9 @@ public class PilaTransacciones
         return Cima.DatoTransaccion!;
     }
 
+    public bool VerificaVacio()
+    {
+        return Cima == null;
+    }
+
 }
