@@ -91,6 +91,55 @@ public class Banco()
     public double ConsultarSaldo(int id)
     {
         Cliente? salcli = clientes!.BuscarCliente(id);
-        
+        if(salcli == null)
+        {
+            Console.WriteLine("Cliente no encontrado");
+            return 0;
+        }
+        return salcli.Saldo;
+    }
+
+
+    public void AgregarTurno(int id)
+    {
+        Cliente? clicola = clientes!.BuscarCliente(id);
+        if(clicola == null)
+        {
+            Console.WriteLine("Cliente no encontrado");
+            return;
+        }
+        cola!.Encolar(clicola);
+    }
+
+
+    public void AtenderSiguiente()
+    {
+        Cliente? clieTend = cola!.Atender();
+        if(clieTend == null)
+        {
+            Console.WriteLine("No hay clientes para atender");
+            return;
+        }
+        Console.WriteLine($"Atendiendo a: {clieTend.Nombre}");
+    }
+
+
+    public void DeshacerTransaccion()
+    {
+        Transaccion? ultima = historial!.BuscTransac();
+        if(ultima == null)
+        {
+            Console.WriteLine("No hay transacciones para deshacer");
+            return;
+        }
+        if(ultima.Tipo == "Deposito")
+        {
+            ultima.clienteTrans.Saldo -= ultima.Monto;
+        }
+        else
+        {
+            ultima.clienteTrans.Saldo += ultima.Monto;
+        }
+
     }
 }
