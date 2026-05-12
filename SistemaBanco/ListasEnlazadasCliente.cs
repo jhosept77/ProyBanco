@@ -27,4 +27,39 @@ public class ListasEnlazadasCliente
         return null;
     }
 
+    public void ListarCliente()
+    {
+        NodoCliente? actual = Cabeza;
+        while(actual != null)
+        {
+            Console.WriteLine($"{actual.DatoCliente?.Nombre}  |  {actual.DatoCliente?.Id}  |  {actual.DatoCliente?.NumeroCuenta}  |  {actual.DatoCliente?.Saldo}");
+            actual = actual.Siguiente;
+        }
+    }
+
+
+    public int CantidadClientes()
+    {
+        NodoCliente? actual = Cabeza;
+        int contador = 0;
+        while(actual != null)
+        {
+            contador++;
+            actual = actual.Siguiente;
+        }
+        return contador;
+    }
+
+
+    public double SaldoTotal()
+    {
+        NodoCliente? actual = Cabeza;
+        double ElSaldo = 0;
+        while(actual != null)
+        {
+            ElSaldo += actual.DatoCliente!.Saldo;
+            actual = actual.Siguiente;
+        }
+        return ElSaldo;
+    }
 }
