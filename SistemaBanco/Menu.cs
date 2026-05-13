@@ -30,24 +30,38 @@ public class Menu
         switch(opcion)
         {
             case 1:
-
                 Console.Write("Nombre: ");
                 string nombre = Console.ReadLine()!;
-                Console.Write("Id: ");
-                int id = int.Parse(Console.ReadLine()!);
-                Console.Write("Numero de cuenta: ");
-                int cuenta = int.Parse(Console.ReadLine()!);
-                Console.Write("Saldo inicial: ");
-                double saldo = double.Parse(Console.ReadLine()!);
-                banco.RegistraCliente(nombre, id, cuenta, saldo);
+                Console.Write("Documento: ");
+                    try
+                    {
+                        int id = int.Parse(Console.ReadLine()!);
+                        Console.Write("Saldo inicial: ");
+                        double saldo = double.Parse(Console.ReadLine()!);
+                        banco.RegistraCliente(nombre, id, saldo);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("CLIENTE REGISTRADO CON EXITO !!");
+                        Console.ResetColor();
+                    }
+                    catch
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("DOCUMENTO INVALIDO !!");
+                        Console.ResetColor();
+                    }
                 break;
+                
+
                 
             case 2:
                 banco.ListarClientes();
                 break;
 
+
+
             case 3:
-                Console.Write("Ingrese ID a buscar: ");
+                try{
+                Console.Write("Ingrese documento a buscar: ");
                 int idBusc = int.Parse(Console.ReadLine()!);
                 Cliente? busc = banco.BuscarCliente(idBusc)!;
                 if(busc == null)
@@ -57,15 +71,39 @@ public class Menu
                     }
                     else
                     {
-                        Console.WriteLine($"Nombre: {busc.Nombre} | Saldo: {busc.Saldo}");
+                        Console.WriteLine($"Nombre: {busc.Nombre} | No Cuenta: {busc.NumeroCuenta} | Saldo: {busc.Saldo}");
+                    }
+                }
+                    catch
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("DOCUMENTO INVALIDO !!");
+                        Console.ResetColor();
                     }
                 break;
             
+
+
+
             case 4:
-                Console.Write("Ingrese un ID a agregar turno: ");
+                try{
+                Console.Write("Ingrese documento a agregar turno: ");
                 int idAgre = int.Parse(Console.ReadLine()!);
                 banco.AgregarTurno(idAgre);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("TURNO AGREGADO CON EXITO !!");
+                Console.ResetColor();
+                }
+                    catch
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("DOCUMENTO INVALIDO !!");
+                        Console.ResetColor();
+                    }
                 break;
+
+
+
 
             
             case 5:
@@ -73,29 +111,72 @@ public class Menu
                 break;
 
 
+
+
             case 6:
-                Console.Write("Ingresa un ID de cliente");
+                try{
+                Console.Write("Ingresa documento del cliente: ");
                 int idDep = int.Parse(Console.ReadLine()!);
-                Console.Write("Ingrese monto a depositar");
+                Console.Write("Ingrese monto a depositar: ");
                 double MonDep = double.Parse(Console.ReadLine()!);
                 banco.Despositar(idDep, MonDep);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("DEPOSITO EXITOSO !!");
+                Console.ResetColor();
+                }
+                    catch
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("DOCUMENTO INVALIDO !!");
+                        Console.ResetColor();
+                    }
                 break;
+
+
 
 
             case 7:
-                Console.Write("Ingresa un ID de cliente");
+                try{
+                Console.Write("Ingresa documento del cliente: ");
                 int idRet = int.Parse(Console.ReadLine()!);
-                Console.Write("Ingrese monto a retirar");
+                Console.Write("Ingrese monto a retirar: ");
                 double MonRet = double.Parse(Console.ReadLine()!);
                 banco.Retirar(idRet, MonRet);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("RETIRO EXITOSO !!");
+                Console.ResetColor();
+                }
+                    catch
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("DOCUMENTO INVALIDO !!");
+                        Console.ResetColor();
+                    }
                 break;
+
+
 
 
             case 8:
-                Console.Write("Ingresa un ID de cliente");
+                try{
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.Write("Ingresa documento del cliente: ");
+                Console.ResetColor();
                 int idSald = int.Parse(Console.ReadLine()!);
-                banco.ConsultarSaldo(idSald);
+                double saldoActual = banco.ConsultarSaldo(idSald);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Saldo actual: {saldoActual}");
+                Console.ResetColor();
+                }
+                    catch
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("DOCUMENTO INVALIDO !!");
+                        Console.ResetColor();
+                    }
                 break;
+
+
 
 
             case 9:
@@ -103,9 +184,16 @@ public class Menu
                 break;
 
 
+
+
             case 10:
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("COLA DE ATENCION");
+                Console.ResetColor();
                 banco.MostrarCola();
                 break;
+
+
 
 
             case 11:
@@ -114,17 +202,27 @@ public class Menu
 
 
 
+
+
             case 12:
             Console.WriteLine($"Total dinero: {banco.TotalDinero()}");
             break;
 
 
+
+
             case 13:
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write("Terminado !!");
+                Console.ResetColor();
                 break;
 
+
+
             default:
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("opcion invalida intente de nuevo");
+                Console.ResetColor();
                 break;
 
         }

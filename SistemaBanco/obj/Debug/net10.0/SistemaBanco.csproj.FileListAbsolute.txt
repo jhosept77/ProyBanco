@@ -1,0 +1,15 @@
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\bin\Debug\net10.0\SistemaBanco.exe
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\bin\Debug\net10.0\SistemaBanco.deps.json
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\bin\Debug\net10.0\SistemaBanco.runtimeconfig.json
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\bin\Debug\net10.0\SistemaBanco.dll
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\bin\Debug\net10.0\SistemaBanco.pdb
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\obj\Debug\net10.0\SistemaBanco.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\obj\Debug\net10.0\SistemaBanco.AssemblyInfoInputs.cache
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\obj\Debug\net10.0\SistemaBanco.AssemblyInfo.cs
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\obj\Debug\net10.0\SistemaBanco.csproj.CoreCompileInputs.cache
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\obj\Debug\net10.0\SistemaBanco.sourcelink.json
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\obj\Debug\net10.0\SistemaBanco.dll
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\obj\Debug\net10.0\refint\SistemaBanco.dll
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\obj\Debug\net10.0\SistemaBanco.pdb
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\obj\Debug\net10.0\SistemaBanco.genruntimeconfig.cache
+C:\Users\torre\Documents\ProyetFINAL\SistemaBanco\obj\Debug\net10.0\ref\SistemaBanco.dll

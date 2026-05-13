@@ -2,13 +2,13 @@ using System;
 
 public class Banco()
 {
-    public ListasEnlazadasCliente? clientes;
-    public ColaAtencion? cola;
-    public PilaTransacciones? historial;
+    public ListasEnlazadasCliente clientes = new ListasEnlazadasCliente();
+    public ColaAtencion cola = new ColaAtencion();
+    public PilaTransacciones historial = new PilaTransacciones();
 
 
 
-    public void RegistraCliente(string nombre, int id, int numeroCuenta, double saldo)
+    public void RegistraCliente(string nombre, int id, double saldo)
     {
         Cliente? existe = clientes!.BuscarCliente(id);
         if(existe != null)
@@ -16,7 +16,7 @@ public class Banco()
             Console.WriteLine("Cliente existente !!");
             return;
         }
-        Cliente nuevo = new Cliente(nombre, id, numeroCuenta, saldo);
+        Cliente nuevo = new Cliente(nombre, id, saldo);
         clientes.IngresarCliente(nuevo);
     }
 
@@ -135,10 +135,12 @@ public class Banco()
         if(ultima.Tipo == "Deposito")
         {
             ultima.clienteTrans.Saldo -= ultima.Monto;
+            Console.WriteLine($"Deshaciendo {ultima.Tipo} de {ultima.clienteTrans.Nombre} por {ultima.Monto}");
         }
         else
         {
             ultima.clienteTrans.Saldo += ultima.Monto;
+            Console.WriteLine($"Deshaciendo {ultima.Tipo} de {ultima.clienteTrans.Nombre} por {ultima.Monto}");
         }
 
     }

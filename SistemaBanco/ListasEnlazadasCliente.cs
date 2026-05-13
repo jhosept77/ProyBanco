@@ -32,7 +32,7 @@ public class ListasEnlazadasCliente
         NodoCliente? actual = Cabeza;
         while(actual != null)
         {
-            Console.WriteLine($"{actual.DatoCliente?.Nombre}  |  {actual.DatoCliente?.Id}  |  {actual.DatoCliente?.NumeroCuenta}  |  {actual.DatoCliente?.Saldo}");
+            Console.WriteLine($"Nombre: {actual.DatoCliente?.Nombre}  |  Documento: {actual.DatoCliente?.Id}  |  No Cuenta: {actual.DatoCliente?.NumeroCuenta}  |  Saldo: {actual.DatoCliente?.Saldo}");
             actual = actual.Siguiente;
         }
     }
