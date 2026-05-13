@@ -38,10 +38,12 @@ public class Menu
                         int id = int.Parse(Console.ReadLine()!);
                         Console.Write("Saldo inicial: ");
                         double saldo = double.Parse(Console.ReadLine()!);
-                        banco.RegistraCliente(nombre, id, saldo);
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("CLIENTE REGISTRADO CON EXITO !!");
-                        Console.ResetColor();
+                        if(banco.RegistraCliente(nombre, id, saldo))
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("CLIENTE REGISTRADO CON EXITO !!");
+                                Console.ResetColor();
+                            }
                     }
                     catch
                     {
@@ -66,12 +68,15 @@ public class Menu
                 Cliente? busc = banco.BuscarCliente(idBusc)!;
                 if(busc == null)
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
                         Console.WriteLine("Cliente no encontrado");
-                        return;
+                        Console.ResetColor();
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine($"Nombre: {busc.Nombre} | No Cuenta: {busc.NumeroCuenta} | Saldo: {busc.Saldo}");
+                        Console.ResetColor();
                     }
                 }
                     catch
@@ -197,7 +202,9 @@ public class Menu
 
 
             case 11:
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Total clientes: {banco.TostalClientes()}");
+            Console.ResetColor();
             break;
 
 
@@ -205,7 +212,9 @@ public class Menu
 
 
             case 12:
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Total dinero: {banco.TotalDinero()}");
+            Console.ResetColor();
             break;
 
 

@@ -8,16 +8,19 @@ public class Banco()
 
 
 
-    public void RegistraCliente(string nombre, int id, double saldo)
+    public bool RegistraCliente(string nombre, int id, double saldo)
     {
         Cliente? existe = clientes!.BuscarCliente(id);
         if(existe != null)
         {
-            Console.WriteLine("Cliente existente !!");
-            return;
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("CLIENTE EXISTENTE !!");
+            Console.ResetColor();
+            return false;
         }
         Cliente nuevo = new Cliente(nombre, id, saldo);
         clientes.IngresarCliente(nuevo);
+        return true;
     }
 
 
@@ -56,7 +59,9 @@ public class Banco()
         Cliente? clitemp = clientes!.BuscarCliente(id);
         if(clitemp == null)
         {
+           Console.ForegroundColor = ConsoleColor.DarkMagenta;
            Console.WriteLine("Cliente no encontrado");
+           Console.ResetColor();
            return;
         }
         clitemp.Saldo += monto;
@@ -72,12 +77,16 @@ public class Banco()
         Cliente? clitemp = clientes!.BuscarCliente(id);
         if(clitemp == null)
         {
+           Console.ForegroundColor = ConsoleColor.DarkMagenta;
            Console.WriteLine("Cliente no encontrado");
+           Console.ResetColor();
            return;
         }
         if(clitemp.Saldo < monto)
         {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("SALDO INSUFICIENTE !!");
+            Console.ResetColor();
             return;
         }
         clitemp.Saldo -= monto;
@@ -93,7 +102,9 @@ public class Banco()
         Cliente? salcli = clientes!.BuscarCliente(id);
         if(salcli == null)
         {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("Cliente no encontrado");
+            Console.ResetColor();
             return 0;
         }
         return salcli.Saldo;
@@ -105,7 +116,9 @@ public class Banco()
         Cliente? clicola = clientes!.BuscarCliente(id);
         if(clicola == null)
         {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("Cliente no encontrado");
+            Console.ResetColor();
             return;
         }
         cola!.Encolar(clicola);
@@ -117,10 +130,14 @@ public class Banco()
         Cliente? clieTend = cola!.Atender();
         if(clieTend == null)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("No hay clientes para atender");
+            Console.ResetColor();
             return;
         }
+        Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine($"Atendiendo a: {clieTend.Nombre}");
+        Console.ResetColor();
     }
 
 
@@ -129,18 +146,24 @@ public class Banco()
         Transaccion? ultima = historial!.BuscTransac();
         if(ultima == null)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("No hay transacciones para deshacer");
+            Console.ResetColor();
             return;
         }
         if(ultima.Tipo == "Deposito")
         {
             ultima.clienteTrans.Saldo -= ultima.Monto;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Deshaciendo {ultima.Tipo} de {ultima.clienteTrans.Nombre} por {ultima.Monto}");
+            Console.ResetColor();
         }
         else
         {
             ultima.clienteTrans.Saldo += ultima.Monto;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Deshaciendo {ultima.Tipo} de {ultima.clienteTrans.Nombre} por {ultima.Monto}");
+            Console.ResetColor();
         }
 
     }

@@ -55,7 +55,9 @@ public class ColaAtencion
         NodoCola? actual = frente;
         while(actual != null)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Nombre: {actual.DatoCliente!.Nombre} | Id: {actual.DatoCliente!.Id} | Cuenta: {actual.DatoCliente!.NumeroCuenta} | Saldo: {actual.DatoCliente!.Saldo}");
+            Console.ResetColor();
             actual = actual.Siguiente;
         }
     }

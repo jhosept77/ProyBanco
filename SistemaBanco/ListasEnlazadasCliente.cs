@@ -32,7 +32,9 @@ public class ListasEnlazadasCliente
         NodoCliente? actual = Cabeza;
         while(actual != null)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"Nombre: {actual.DatoCliente?.Nombre}  |  Documento: {actual.DatoCliente?.Id}  |  No Cuenta: {actual.DatoCliente?.NumeroCuenta}  |  Saldo: {actual.DatoCliente?.Saldo}");
+            Console.ResetColor();
             actual = actual.Siguiente;
         }
     }
