@@ -168,4 +168,15 @@ public class Banco()
         }
 
     }
+
+
+
+    public void HistorialTransacciones()
+    {
+            
+            Console.Write("Ingrese Documento de cliente: ");
+            int IdHis = int.Parse(Console.ReadLine()!);
+            historial.HistorialTran(IdHis);
+        
+    }
 }

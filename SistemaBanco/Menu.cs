@@ -8,7 +8,7 @@ public class Menu
     public void Iniciar()
 {
     int opcion = 0;
-    while(opcion != 13)
+    while(opcion != 14)
     {
         Console.WriteLine("1. Registrar cliente");
         Console.WriteLine("2. Listar clientes");
@@ -22,7 +22,8 @@ public class Menu
         Console.WriteLine("10. Mostrar cola");
         Console.WriteLine("11. Total clientes");
         Console.WriteLine("12. Total dinero");
-        Console.WriteLine("13. Salir");
+        Console.WriteLine("13. Ver historial transaccional");
+        Console.WriteLine("14. Salir");
 
         Console.Write("Elige una opcion: ");
         opcion = int.Parse(Console.ReadLine()!);
@@ -146,7 +147,6 @@ public class Menu
                 int idRet = int.Parse(Console.ReadLine()!);
                 Console.Write("Ingrese monto a retirar: ");
                 double MonRet = double.Parse(Console.ReadLine()!);
-                banco.Retirar(idRet, MonRet);
 
                 if(banco.Retirar(idRet, MonRet))
                     {
@@ -154,7 +154,7 @@ public class Menu
                         Console.WriteLine("RETIRO EXITOSO !!");
                         Console.ResetColor();
                     }
-                    
+
                 }
                     catch
                     {
@@ -224,8 +224,14 @@ public class Menu
 
 
 
-
             case 13:
+                banco.HistorialTransacciones();
+                break;
+
+
+
+
+            case 14:
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write("Terminado !!");
                 Console.ResetColor();
