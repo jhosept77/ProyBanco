@@ -147,9 +147,14 @@ public class Menu
                 Console.Write("Ingrese monto a retirar: ");
                 double MonRet = double.Parse(Console.ReadLine()!);
                 banco.Retirar(idRet, MonRet);
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("RETIRO EXITOSO !!");
-                Console.ResetColor();
+
+                if(banco.Retirar(idRet, MonRet))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("RETIRO EXITOSO !!");
+                        Console.ResetColor();
+                    }
+                    
                 }
                     catch
                     {

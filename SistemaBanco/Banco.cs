@@ -72,7 +72,7 @@ public class Banco()
     }
 
 
-    public void Retirar(int id, double monto)
+    public bool Retirar(int id, double monto)
     {
         Cliente? clitemp = clientes!.BuscarCliente(id);
         if(clitemp == null)
@@ -80,19 +80,20 @@ public class Banco()
            Console.ForegroundColor = ConsoleColor.DarkMagenta;
            Console.WriteLine("Cliente no encontrado");
            Console.ResetColor();
-           return;
+           return false;
         }
         if(clitemp.Saldo < monto)
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("SALDO INSUFICIENTE !!");
             Console.ResetColor();
-            return;
+            return false;
         }
         clitemp.Saldo -= monto;
 
         Transaccion newtran = new Transaccion(clitemp, "Retiro", monto);
         historial!.Push(newtran);
+        return true;
     }
 
 
